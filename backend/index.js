@@ -1,3 +1,22 @@
 // index.js 
 
-console.log("done")
+import express from 'express'
+import cors from 'cors'
+import dotenv from 'dotenv'
+dotenv.config()
+const PORT = process.env.PORT || 5000
+const app = express()
+import authRoute from './routes/authRoute.js'
+
+app.use(cors())
+app.use(express.json());
+
+app.get('/', (req, res) => {
+    res.send("This is an root file")
+})
+
+app.use('/api/auth', authRoute)
+
+app.listen(PORT, () => {
+    console.log(`server is running on this port: ${process.env.PORT}`)
+})
