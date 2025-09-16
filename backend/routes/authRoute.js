@@ -7,7 +7,7 @@ const router = express.Router()
 
 router.get('/signup', (req,res)=>{
     res.send("this is a sign")
-    console.log("executed")
+    
 })
 router.get('/login', login)
 

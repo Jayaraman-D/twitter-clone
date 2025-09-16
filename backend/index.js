@@ -7,6 +7,7 @@ dotenv.config()
 const PORT = process.env.PORT || 5000
 const app = express()
 import authRoute from './routes/authRoute.js'
+import connectDB from './database/connectDB.js'
 
 app.use(cors())
 app.use(express.json());
@@ -19,4 +20,5 @@ app.use('/api/auth', authRoute)
 
 app.listen(PORT, () => {
     console.log(`server is running on this port: ${process.env.PORT}`)
+    connectDB()
 })
